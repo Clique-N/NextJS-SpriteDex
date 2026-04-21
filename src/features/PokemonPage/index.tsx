@@ -2,7 +2,7 @@ import { getPokemonInfo, getPokemonDescription } from "@/lib/api/services"
 import styles from "./PokemonPage.module.css"
 
 type Props ={ 
-    id: number
+    id: string
 }
 
 const PokemonPage = async ({id} : Props) => {

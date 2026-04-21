@@ -4,7 +4,7 @@ import { getPokemonInfo } from "@/lib/api/services";
 
 type Props ={ 
     params: Promise <{
-        id: number
+        id: string
     }>
 }
 
@@ -12,7 +12,7 @@ export const generateMetadata = async({params}: Props) => {
 
     const { id } = await params;
 
-    const pokemon = await getPokemonInfo(Number(id));
+    const pokemon = await getPokemonInfo(id);
 
     return{
         title: `${pokemon.name} || SpriteDex`,
@@ -27,7 +27,7 @@ const pokemonPageDefault = async({params} : Props) => {
 
     const { id } = await params;
 
-    const pokemon = await getPokemonInfo(Number(id));
+    const pokemon = await getPokemonInfo(id);
 
     return (
         <>

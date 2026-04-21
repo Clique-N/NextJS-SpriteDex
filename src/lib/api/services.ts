@@ -30,7 +30,7 @@ export const getPokemonPrimeira = () => getPokemon (0, 151);
 
 export const getPokemonSegunda = () => getPokemon (151, 100);
 
-export const getPokemonInfo = async (id: number): Promise<PokemonInfo> => {
+export const getPokemonInfo = async (id: string): Promise<PokemonInfo> => {
   const res = await pokeApi.get(`pokemon/${id}`);
 
   return {
@@ -55,7 +55,7 @@ export const getPokemonInfo = async (id: number): Promise<PokemonInfo> => {
   };
 };
 
-export const getPokemonDescription = async (id:number) => {
+export const getPokemonDescription = async (id:string) => {
     const res = await pokeApi.get(`pokemon-species/${id}`);
 
     const entry = res.data.flavor_text_entries.find((text:any) => 
