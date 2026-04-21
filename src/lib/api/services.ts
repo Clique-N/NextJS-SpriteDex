@@ -1,8 +1,8 @@
 import { pokeApi } from "./axios"
-import { Pokemon, PokemonInfo } from "@/types/Types"
+import { PokemonAPI, Pokemon, PokemonInfo } from "@/types/Types"
 
 type Data = {
-    results: Pokemon[]
+    results: PokemonAPI[]
 }
 
 type Info = {
@@ -13,15 +13,16 @@ export const getPokemon = async (offset: number = 0, limit: number = 20) => {
 
     const res = await pokeApi.get<Data>(`pokemon?offset=${offset}&limit=${limit}`)
 
-    return res.data.results.flatMap((poke) => {
+    return res.data.results.map((poke: PokemonAPI) => {
         const id = poke.url.split("/").filter(Boolean).pop()
 
-        if(!id) return [];
+        if(!id) return null;
 
         return {
-            ...poke, id
+            name: poke.name, url: poke.url, id: id,
         };
-    });
+    })
+    .filter((poke): poke is Pokemon => poke !== null);
 };
 
 export const getPokemonPrimeira = () => getPokemon (0, 151);
