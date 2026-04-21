@@ -13,12 +13,10 @@ export const getPokemon = async (offset: number = 0, limit: number = 20) => {
 
     const res = await pokeApi.get<Data>(`pokemon?offset=${offset}&limit=${limit}`)
 
-    return res.data.results.map((poke) => {
+    return res.data.results.flatMap((poke) => {
         const id = poke.url.split("/").filter(Boolean).pop()
 
-        if(!id) {
-            throw new Error("ID não encontrado");
-        }
+        if(!id) return [];
 
         return {
             ...poke, id
