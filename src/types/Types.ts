@@ -1,3 +1,8 @@
+export interface PokemonAPI {
+    name: string;
+    url: string;
+}
+
 export interface Pokemon {
     id: string;
     name: string;
