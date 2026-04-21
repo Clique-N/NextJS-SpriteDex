@@ -1,7 +1,8 @@
 import { getPokemon } from "../lib/api/services";
 import Title from "../components/Title";
 import PokemonGrid from "../features/PokemonGrid";
-import Link from "next/link";
+import Button from "../components/Button"
+import Count from "../components/Count";
 
 type Props = {
   searchParams: Promise<{ 
@@ -11,25 +12,23 @@ type Props = {
 
 export const revalidate = 86400; //Atualiza depois de 24hrs. Assim, quando sair um novo jogo, a lista não fica desatualizada se o PokeApi atualizar.
 
-export default async function Home({searchParams} : Props) {
+export default async function Home ({searchParams} : Props) {
 
   const params = await searchParams;
   const offset = Number(params.page) || 0;
 
   const pokemon = await getPokemon(offset);
 
+  const start = offset + 1;
+  const end = offset + pokemon.length;
+
   return (
     <>
       <Title title="Biblioteca de sprites de Pokemon"/>
+      <Button offset={offset}/>
+      <Count start={start} end={end}/>
       <PokemonGrid pokes={pokemon}/>
-      <div>
-        <Link href={`/?page=${offset - 20}`}>
-          <button disabled={offset === 0}>Página anterior</button>
-        </Link>        
-        <Link href={`/?page=${offset + 20}`}>
-          <button>Próxima página</button>
-        </Link>
-      </div>
+      <Button offset={offset}/>
     </>
   );
 }

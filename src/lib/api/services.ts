@@ -54,3 +54,14 @@ export const getPokemonInfo = async (id: number): Promise<PokemonInfo> => {
     ].filter((value): value is string => Boolean(value)),
   };
 };
+
+export const getPokemonDescription = async (id:number) => {
+    const res = await pokeApi.get(`pokemon-species/${id}`);
+
+    const entry = res.data.flavor_text_entries.find((text:any) => 
+        text.language.name === "en"
+    )
+
+    return entry?.flavor_text
+    .replace(/\n/g, " ") .replace(/\f/g, " ");
+}

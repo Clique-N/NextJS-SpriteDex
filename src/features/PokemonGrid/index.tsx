@@ -9,7 +9,7 @@ type Props ={
 const PokemonGrid = ({pokes} : Props) => {
 
     return (
-        <section>
+        <section className={styles.grid}>
             {pokes.map(poke => <PokemonCard key={poke.id} poke={poke}/>)}
         </section>
     )

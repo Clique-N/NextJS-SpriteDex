@@ -1,0 +1,28 @@
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+}
+
+.button {
+    background-color: #da0704;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    padding: 10px 16px;
+}
+
+.button:hover {
+    background-color: #fdd405;
+    color: black;
+}

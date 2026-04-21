@@ -27,9 +27,11 @@ const pokemonPageDefault = async({params} : Props) => {
 
     const { id } = await params;
 
+    const pokemon = await getPokemonInfo(Number(id));
+
     return (
         <>
-            <Title title="Pokemon"/>
+            <Title title={pokemon.name}/>
             <PokemonPage id={id}/>
         </>
     )
