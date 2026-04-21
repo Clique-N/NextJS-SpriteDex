@@ -8,7 +8,7 @@ type Props ={
 
 const PokemonCard = ({poke} : Props) => {
     const { id, name } = poke;
-    const image = `${process.env.NEXT_PUBLIC_POKE_API_IMG_URL}/${poke.id}.png`
+    const image = `${process.env.NEXT_PUBLIC_POKE_API_IMG_URL}/${id}.png`
 
     return (
         <div className={styles.card}>
