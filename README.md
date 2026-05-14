@@ -1,5 +1,5 @@
 ## SpriteDex
- - Um projeto para o curso da EBAC, focado no teste de aplicação com API publica utilizando o Next-JS. Teste também foi otimizado utilizando ferramentas como Lighthouse do DevTools.
+ - Um projeto para o curso da EBAC, focado no teste de aplicação com API publica utilizando o Next-JS. Projeto também foi otimizado utilizando ferramentas como Lighthouse do DevTools.
 
 ## Problemas identificados
   - <img width="700" height="800" alt="Performance-Insights-Older-Version" src="https://github.com/user-attachments/assets/532fe0e8-9c2b-4b34-8704-0cd687eefc1c" />
