@@ -15,7 +15,7 @@ const PokemonCard = ({poke} : Props) => {
             <Link  className={styles.card__name} href={`/pokemon/${id}`}>
                 <div>
                     <h3>{name}</h3>
-                    <img className={styles.card__img} src={image} alt={name} />
+                    <img className={styles.card__img} loading="lazy" src={image} alt={`Nome do Pokemon: ${name}`} />
                 </div>
             </Link>
         </div>
